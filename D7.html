@@ -89,11 +89,12 @@
                   */
       const h1 = document.getElementsByTagName("h1");
 
-      const changeTitle = function () {
-        h1[0].innerText = "Ciao a tutti";
+      const changeTitle = function (text) {
+        h1[0].innerText = text;
       };
 
-      changeTitle();
+      changeTitle("Nuovo titolo !");
+
       /* ESERCIZIO 2
                     Scrivi una funzione per aggiungere al titolo della pagina una classe "myHeading"
                     */
@@ -172,14 +173,19 @@
                     */
 
       const makeItClickable = function () {
-        h1.onclick = function () {
-          const testContent = h1.textContent;
-          const lastTextContent = textContent.length - 1;
-          lastTextContent.remove();
-        };
-        return h1.onclick();
+        h1[0].innerText = h1[0].innerText.slice(0, -1);
       };
-      makeItClickable();
+      h1[0].onclick = makeItClickable;
+
+      // const makeItClickable = function () {
+      //   h1.onclick = function () {
+      //     const testContent = h1.textContent;
+      //     const lastTextContent = textContent.length - 1;
+      //     lastTextContent.remove();
+      //   };
+      //   return h1.onclick();
+      // };
+      // makeItClickable();
 
       /* ESERCIZIO 10
                      Crea una funzione che, al click sul footer, riveli l'URL del link interno come contenuto di un alert()
@@ -195,7 +201,7 @@
       const generateTable = function (table) {
         const newTab = document.createElement("table");
         for (r = 0; r < 6; r++) {
-          const row = document.newElement("tr");
+          const row = document.createElement("tr");
 
           for (c = 0; c < 5; c++) {
             const cell = document.createElement("td");
